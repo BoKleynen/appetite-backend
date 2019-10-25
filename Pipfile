@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 markdown = "*"
+pylint = "*"
 
 [packages]
 django = "~=2.2.6"
