@@ -12,6 +12,7 @@ django = "~=2.2.6"
 psycopg2 = "~=2.8.4"
 django-environ = "*"
 djangorestframework = "~=3.10.3"
+django-rest-auth = "*"
 
 [requires]
 python_version = "3.8"
