@@ -11,19 +11,24 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import environ
+
+root = environ.Path(__file__) - 2  # get root of the project
+env: environ.Env = environ.Env()
+environ.Env.read_env(root('.env'))  # reading .env file
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = root()
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!qcad=0t731h$as+c9gbdnx^5vcqqmxk+siht^&5e!fko&mr$e'
+SECRET_KEY = env.str('SECRET_KEY', '!qcad=0t731h$as+c9gbdnx^5vcqqmxk+siht^&5e!fko&mr$e')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', True)
 
 ALLOWED_HOSTS = []
 
@@ -75,8 +80,15 @@ WSGI_APPLICATION = 'appetite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env.str('DB_NAME', 'appetite'),
+        'USER': env.str('DB_USER'),
+        'PASSWORD': env.str('DB_PASSWORD', ''),
+        'HOST': env.str('DB_HOST', 'localhost'),
+        'PORT': env.int('DB_PORT', 5432),
+        # 'OPTIONS': {
+        #     'sslmode': 'require'
+        # }
     }
 }
 
