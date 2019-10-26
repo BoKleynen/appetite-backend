@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from django.core.serializers.json import DjangoJSONEncoder
 from appetite.api.models import MenuItem, Order, Venue, Category, OrderItem
 
 
@@ -19,12 +20,14 @@ class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
         fields = ['url', 'name', 'price', 'extra_info', 'category', 'venue']
-
+        depth = 1
 
 class OrderSerializer(serializers.ModelSerializer):
+    created_at = serializers.DateTimeField()
     class Meta:
         model = Order
-        fields = ['url', 'status', 'customer', 'table', 'items', 'created_at']
+        fields = ['url', 'status', 'customer', 'table', 'items']
+        depth = 1
 
 
 class VenueSerializer(serializers.ModelSerializer):
@@ -43,3 +46,4 @@ class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = ['url', 'amount', 'item', 'order']
+        depth = 2
