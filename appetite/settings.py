@@ -30,22 +30,28 @@ SECRET_KEY = env.str('SECRET_KEY', '!qcad=0t731h$as+c9gbdnx^5vcqqmxk+siht^&5e!fk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', True)
 
-ALLOWED_HOSTS = ['webserver.dondernemers.be', 'dondernemers.be']
+ALLOWED_HOSTS = [
+    'webserver.dondernemers.be',
+    'dondernemers.be',
+    'localhost'
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'appetite.api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
+
+    'appetite.api',
 ]
 
 MIDDLEWARE = [
