@@ -19,9 +19,13 @@ from rest_framework import routers
 from appetite.api import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'MenuItems', views.MenuItemViewSet)
+router.register(r'user', views.UserViewSet)
+router.register(r'group', views.GroupViewSet)
+router.register(r'MenuItem', views.MenuItemViewSet)
+router.register(r'Order', views.OrderViewSet)
+router.register(r'OrderItem', views.OrderItemViewSet)
+router.register(r'Venue', views.VenueViewSet)
+router.register(r'Category', views.CategoryViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
