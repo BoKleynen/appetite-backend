@@ -24,19 +24,19 @@ class MenuItem(models.Model):
     price = models.FloatField()
     extra_info = models.TextField()
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    venue = models.ForeignKey('Venue', on_delete=models.CASCADE)
+    venue = models.ForeignKey('Venue', on_delete=models.CASCADE, related_name='menu_items')
 
 
 @timestamps
-class Orders(models.Model):
+class Order(models.Model):
     status = models.TextField()  # staging? > pending > delivered? > payed
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='items')
     table = models.IntegerField()
 
 
 @timestamps
 class OrderItem(models.Model):
     amount = models.IntegerField()
-    order = models.ForeignKey('Orders', on_delete=models.CASCADE)
+    order = models.ForeignKey('Order', on_delete=models.CASCADE)
     item = models.ForeignKey('MenuItem', on_delete=models.DO_NOTHING)
 
