@@ -18,28 +18,28 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ['name', 'price', 'extra_info', 'category', 'venue']
+        fields = ['url', 'name', 'price', 'extra_info', 'category', 'venue']
 
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Order
-        fields = ['status', 'customer', 'table', 'items']
+        fields = ['url', 'status', 'customer', 'table', 'items']
 
 
 class VenueSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Venue
-        fields = ['name', 'info']
+        fields = ['url', 'name', 'info']
 
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
-        fields = ['name']
+        fields = ['url', 'name']
 
 
 class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = OrderItem
-        fields = ['amount', 'item']
+        fields = ['url', 'amount', 'item']
