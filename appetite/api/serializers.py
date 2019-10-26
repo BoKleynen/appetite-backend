@@ -42,4 +42,4 @@ class CategorySerializer(serializers.ModelSerializer):
 class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = OrderItem
-        fields = ['url', 'amount', 'item']
+        fields = ['url', 'amount', 'item', 'order']
