@@ -24,7 +24,7 @@ class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Order
-        fields = ['url', 'status', 'customer', 'table', 'items']
+        fields = ['url', 'status', 'customer', 'table', 'items', 'created_at']
 
 
 class VenueSerializer(serializers.HyperlinkedModelSerializer):
