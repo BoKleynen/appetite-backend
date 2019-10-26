@@ -30,7 +30,7 @@ SECRET_KEY = env.str('SECRET_KEY', '!qcad=0t731h$as+c9gbdnx^5vcqqmxk+siht^&5e!fk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['webserver.dondernemers.be', 'dondernemers.be']
 
 
 # Application definition
