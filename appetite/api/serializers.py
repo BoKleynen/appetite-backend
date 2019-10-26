@@ -33,7 +33,7 @@ class VenueSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'name', 'info']
 
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['url', 'name']

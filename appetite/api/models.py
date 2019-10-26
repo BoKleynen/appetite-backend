@@ -31,7 +31,7 @@ class MenuItem(models.Model):
 @timestamps
 class Order(models.Model):
     status = models.TextField()  # staging? > pending > delivered? > payed
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='items')
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
     table = models.IntegerField()
 
 
@@ -39,5 +39,5 @@ class Order(models.Model):
 class OrderItem(models.Model):
     amount = models.IntegerField()
     order = models.ForeignKey('Order', on_delete=models.CASCADE)
-    item = models.ForeignKey('MenuItem', on_delete=models.DO_NOTHING)
+    item = models.ForeignKey('MenuItem', on_delete=models.DO_NOTHING, related_name='items')
 
