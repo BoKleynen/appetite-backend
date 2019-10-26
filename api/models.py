@@ -19,7 +19,7 @@ class Category(models.Model):
 
 
 @timestamps
-class Drink(models.Model):
+class MenuItem(models.Model):
     name = models.TextField
     price = models.FloatField
     extra_info = models.TextField
@@ -38,5 +38,5 @@ class Orders(models.Model):
 class OrderItem(models.Model):
     amount = models.IntegerField
     order = models.ForeignKey(Orders, on_delete=models.CASCADE)
-    item = models.ForeignKey(Drink)
+    item = models.ForeignKey(MenuItem)
 
