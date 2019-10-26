@@ -1,10 +1,6 @@
 -i https://pypi.org/simple
 django-environ==0.4.5
-<<<<<<< HEAD
 django-filter==2.2.0
-=======
-django-filters==0.2.1
->>>>>>> c5d610b7bfe07977c7be2a8c830f387749906190
 django-rest-auth==0.9.5
 django==2.2.6
 djangorestframework==3.10.3

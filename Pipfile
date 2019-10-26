@@ -4,20 +4,17 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-markdown = "*"
-pylint = "*"
 
 [packages]
-django = "~=2.2.6"
-psycopg2 = "~=2.8.4"
 django-environ = "*"
-djangorestframework = "~=3.10.3"
-django-rest-auth = "*"
-<<<<<<< HEAD
 django-filter = "*"
-=======
-django-filters = "*"
->>>>>>> c5d610b7bfe07977c7be2a8c830f387749906190
+django-rest-auth = "*"
+django = "*"
+djangorestframework = "*"
+psycopg2 = "*"
+pytz = "*"
+six = "*"
+sqlparse = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.7"
