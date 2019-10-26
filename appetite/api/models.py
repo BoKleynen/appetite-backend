@@ -1,26 +1,24 @@
 from django.db import models
-from django.contrib.auth.models import User
+from datetime import datetime
+from django.utils import timezone
 
 
-def timestamps(klass):
-    klass.created_at = models.DateTimeField(auto_now_add=True)
-    klass.updated_at = models.DateTimeField(auto_now=True)
-    return klass
-
-
-@timestamps
 class Venue(models.Model):
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     name = models.TextField()
     info = models.TextField()
 
 
-@timestamps
 class Category(models.Model):
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     name = models.TextField()
 
 
-@timestamps
 class MenuItem(models.Model):
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     name = models.TextField()
     price = models.FloatField()
     extra_info = models.TextField()
@@ -28,15 +26,16 @@ class MenuItem(models.Model):
     venue = models.ForeignKey('Venue', on_delete=models.CASCADE, related_name='menu_items')
 
 
-@timestamps
 class Order(models.Model):
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     status = models.TextField()  # staging? > pending > delivered? > payed
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
     table = models.IntegerField()
 
 
-@timestamps
 class OrderItem(models.Model):
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     amount = models.IntegerField()
     order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='items')
     item = models.ForeignKey('MenuItem', on_delete=models.DO_NOTHING)

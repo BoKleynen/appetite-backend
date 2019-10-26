@@ -19,8 +19,6 @@ from rest_framework import routers
 from appetite.api import views
 
 router = routers.DefaultRouter()
-router.register(r'user', views.UserViewSet)
-router.register(r'group', views.GroupViewSet)
 router.register(r'MenuItem', views.MenuItemViewSet)
 router.register(r'Order', views.OrderViewSet)
 router.register(r'OrderItem', views.OrderItemViewSet)
