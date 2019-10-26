@@ -4,8 +4,8 @@ from rest_framework.response import Response
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from .models import MenuItem, OrderItem, Order, Category, Venue
-from .serializers import UserSerializer, GroupSerializer, MenuItemSerializer
+from appetite.api.models import MenuItem, OrderItem, Order, Category, Venue
+from appetite.api.serializers import UserSerializer, GroupSerializer, MenuItemSerializer
 
 
 # Create your views here.
@@ -35,7 +35,7 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    queryset = MenuItem.objects
+    queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
 
 

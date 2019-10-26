@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import MenuItem, Order, Venue, Category, OrderItem
+from appetite.api.models import MenuItem, Order, Venue, Category, OrderItem
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

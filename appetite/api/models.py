@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 def timestamps(klass):
     klass.created = models.DateTimeField(auto_now_add=True)
     klass.updated = models.DateTimeField(auto_now=True)
+    return klass
 
 
 @timestamps
