@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 
 def timestamps(klass):
-    klass.created = models.DateTimeField(auto_now_add=True)
-    klass.updated = models.DateTimeField(auto_now=True)
+    klass.created_at = models.DateTimeField(auto_now_add=True)
+    klass.updated_at = models.DateTimeField(auto_now=True)
     return klass
 
 
@@ -38,6 +38,6 @@ class Order(models.Model):
 @timestamps
 class OrderItem(models.Model):
     amount = models.IntegerField()
-    order = models.ForeignKey('Order', on_delete=models.CASCADE)
-    item = models.ForeignKey('MenuItem', on_delete=models.DO_NOTHING, related_name='items')
+    order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='items')
+    item = models.ForeignKey('MenuItem', on_delete=models.DO_NOTHING)
 
