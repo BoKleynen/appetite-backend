@@ -5,14 +5,13 @@ import pytz
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ['url', 'name', 'price', 'extra_info', 'category', 'venue', 'reccomended']
-        depth = 1
+        fields = ['id', 'url', 'name', 'price', 'extra_info', 'category', 'venue', 'reccomended']
 
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['url', 'status', 'table', 'items', 'created_at']
+        fields = ['id', 'url', 'status', 'table', 'items', 'created_at']
         depth = 1
 
 
@@ -31,5 +30,4 @@ class CategorySerializer(serializers.ModelSerializer):
 class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
-        fields = ['url', 'amount', 'item', 'order']
-        depth = 2
+        fields = ['id', 'url', 'amount', 'item', 'order']

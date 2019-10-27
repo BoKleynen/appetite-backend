@@ -21,10 +21,10 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows MenuItems to be viewed or edited.
     """
-    queryset = MenuItem.objects.all()
+    queryset = MenuItem.objects.all().order_by('-reccomended')
     serializer_class = MenuItemSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['name', 'category', 'venue']
+    filterset_fields = ['name', 'category', 'venue', 'reccomended']
 
 
 class OrderViewSet(viewsets.ModelViewSet):
