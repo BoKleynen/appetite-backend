@@ -33,3 +33,4 @@ class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = ['id', 'url', 'amount', 'item', 'order']
+
