@@ -3,9 +3,10 @@ from appetite.api.models import MenuItem, Order, Venue, Category, OrderItem
 import pytz
 
 class MenuItemSerializer(serializers.ModelSerializer):
+    categoryname = serializers.CharField(source='category.name', read_only=True)
     class Meta:
         model = MenuItem
-        fields = ['id', 'url', 'name', 'price', 'extra_info', 'category', 'venue', 'reccomended']
+        fields = ['id', 'url', 'name', 'price', 'extra_info', 'category', 'venue', 'reccomended', 'categoryname']
 
 
 class OrderSerializer(serializers.ModelSerializer):

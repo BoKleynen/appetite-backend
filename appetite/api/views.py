@@ -25,6 +25,7 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     serializer_class = MenuItemSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name', 'category', 'venue', 'reccomended']
+    depth=1
 
 
 class OrderViewSet(viewsets.ModelViewSet):
