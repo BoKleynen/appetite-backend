@@ -10,8 +10,6 @@ class MenuItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    created_at = serializers.DateTimeField(format='iso-8601', default_timezone=pytz.utc, read_only=True)
-
     class Meta:
         model = Order
         fields = ['url', 'status', 'table', 'items', 'created_at']
@@ -21,7 +19,7 @@ class OrderSerializer(serializers.ModelSerializer):
 class VenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Venue
-        fields = ['url', 'name', 'info']
+        fields = ['url', 'name', 'info', 'created_at', 'updated_at']
 
 
 class CategorySerializer(serializers.ModelSerializer):

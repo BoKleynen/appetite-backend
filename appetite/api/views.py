@@ -7,6 +7,7 @@ from rest_framework import viewsets
 from appetite.api.models import MenuItem, OrderItem, Order, Category, Venue
 from appetite.api.serializers import MenuItemSerializer, OrderSerializer, OrderItemSerializer, VenueSerializer, CategorySerializer
 
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Create your views here.
 
@@ -22,6 +23,8 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     """
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name', 'category', 'venue']
 
 
 class OrderViewSet(viewsets.ModelViewSet):
@@ -30,6 +33,8 @@ class OrderViewSet(viewsets.ModelViewSet):
     """
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['table', 'status']
 
 
 class VenueViewSet(viewsets.ModelViewSet):
@@ -54,4 +59,6 @@ class OrderItemViewSet(viewsets.ModelViewSet):
     """
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['item', 'order']
 # class
