@@ -24,6 +24,7 @@ class MenuItem(models.Model):
     extra_info = models.TextField()
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     venue = models.ForeignKey('Venue', on_delete=models.CASCADE, related_name='menu_items')
+    reccomended = models.BooleanField(default=False)
 
 
 class Order(models.Model):

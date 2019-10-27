@@ -5,7 +5,7 @@ import pytz
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ['url', 'name', 'price', 'extra_info', 'category', 'venue']
+        fields = ['url', 'name', 'price', 'extra_info', 'category', 'venue', 'reccomended']
         depth = 1
 
 
