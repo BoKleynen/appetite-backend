@@ -39,5 +39,5 @@ class OrderItem(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     amount = models.IntegerField()
     order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='items')
-    item = models.ForeignKey('MenuItem', on_delete=models.DO_NOTHING)
+    item = models.ForeignKey('MenuItem', on_delete=models.CASCADE)
 

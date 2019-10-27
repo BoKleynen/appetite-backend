@@ -10,10 +10,11 @@ class MenuItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
+    depth = 3
     class Meta:
         model = Order
         fields = ['id', 'url', 'status', 'table', 'items', 'created_at']
-        depth = 1
+
 
 
 class VenueSerializer(serializers.ModelSerializer):

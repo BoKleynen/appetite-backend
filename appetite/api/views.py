@@ -25,7 +25,6 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     serializer_class = MenuItemSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name', 'category', 'venue', 'reccomended']
-    depth=1
 
 
 class OrderViewSet(viewsets.ModelViewSet):
@@ -62,4 +61,11 @@ class OrderItemViewSet(viewsets.ModelViewSet):
     serializer_class = OrderItemSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['item', 'order']
+    def retrieve(self, request, pk=None):
+        queryset = OrderItem.objects.all()
+        orderitem = get_object_or_404(queryset, pk=pk)
+        serializer = OrderItemSerializer(orderitem)
+
+        return Response(serializer.data.update())
+
 # class
